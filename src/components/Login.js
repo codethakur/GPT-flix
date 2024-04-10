@@ -1,24 +1,29 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, updateProfile,createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValiData } from "../utils/validate";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
 
   const handelButtonClick = () => {
-    const emailValue = email.current ? email.current.value : '';
-    const passwordValue = password.current ? password.current.value : '';
-    const nameValue = !isSignInForm && name.current ? name.current.value : '';
+    const emailValue = email.current ? email.current.value : "";
+    const passwordValue = password.current ? password.current.value : "";
+    const nameValue = !isSignInForm && name.current ? name.current.value : "";
 
-  
     const Message = checkValiData(emailValue, passwordValue, nameValue);
     setErrorMessage(Message);
     if (Message) return;
@@ -34,7 +39,27 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/83303141?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
+
           // ...
         })
         .catch((error) => {
@@ -46,15 +71,16 @@ const Login = () => {
     }
     //sign In
     else {
-        signInWithEmailAndPassword(
-          auth,
-          email.current.value,
-          password.current.value
-        )      
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
+          navigate("/browse");
           // ...
         })
         .catch((error) => {
