@@ -1,13 +1,12 @@
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay,faInfoCircle  } from '@fortawesome/free-solid-svg-icons';
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className=" w-screen aspect-video pt-[20%] px-24 absolute text-slate-100  bg-gradient-to-r from-black">
-      <h1 className="text-5xl font-bold ">{title}</h1>
-      <p className="py-6 text-base w-1/4">{overview}</p>
-      <div className="">
+    <div className=" w-screen aspect-video pt-[20%] px-20 absolute text-slate-100  bg-gradient-to-r from-black">
+      <h1 className="text-5xl font-semibold ">{title}</h1>
+      <p className="py-6 text-sm w-1/4">{overview}</p>
+      <div className=''>
       <button className="bg-white text-black p-4 px-12 text-xl rounded-lg font-bold hover:bg-opacity-70">
           <FontAwesomeIcon icon={faPlay} /> Play
         </button>

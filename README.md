@@ -23,9 +23,14 @@
 - Custom Hook for Now  Playing  Movies list API
 - Crete moviesSlice
 - Update Store with Trailer Video Data
--Embedded te Youtube Video and make it autoplay in background
--Tailwind Classes to make main container look awsome as well fortawesome icon for button
-
+- Embedded te Youtube Video and make it autoplay in background
+- Tailwind Classes to make main container look awsome as well fortawesome icon for button
+- Build Secondary  Component
+- Build Movies List
+- Build Movies Card
+- TMDB IMG_CDN_URL
+- Imrove browse page ui design
+- usePopularMovies Custome hook
 
 # Feature
 -Login/Sign UP
