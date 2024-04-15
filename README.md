@@ -33,6 +33,8 @@
 - usePopularMovies Custome hook
 - useupcomingMovies Custome hook
 - useTopRatedMovies Custome hook
+- GPT Search Feature 
+- GPT 
 # Feature
 -Login/Sign UP
 |->Singn In/ Sign ip Form
