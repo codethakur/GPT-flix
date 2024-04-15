@@ -3,13 +3,21 @@ export const LOGO =
 export const USER_AVATAR =
   "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg";
 
+// export const API_OPTIONS = {
+//   method: "GET",
+//   headers: {
+//     Authorization:
+//       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYzg1ZDE0Y2RlZTU1OGVjNGQxNTI5N2M1NTBkZjQzMCIsInN1YiI6IjY1M2E0ODJlZWM0NTUyMDE0ZDZlYzg4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.q7WjaVu4OMMc48xhjX-pj0Suw1ugoRkKcm0-IC9D1Fg",
+//     accept: "application/json",
+//   },
+// };
+
 export const API_OPTIONS = {
-  method: "GET",
   headers: {
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYzg1ZDE0Y2RlZTU1OGVjNGQxNTI5N2M1NTBkZjQzMCIsInN1YiI6IjY1M2E0ODJlZWM0NTUyMDE0ZDZlYzg4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.q7WjaVu4OMMc48xhjX-pj0Suw1ugoRkKcm0-IC9D1Fg",
-    accept: "application/json",
-  },
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYzg1ZDE0Y2RlZTU1OGVjNGQxNTI5N2M1NTBkZjQzMCIsInN1YiI6IjY1M2E0ODJlZWM0NTUyMDE0ZDZlYzg4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.q7WjaVu4OMMc48xhjX-pj0Suw1ugoRkKcm0-IC9D1Fg",
+    Accept: "application/json"
+  }
 };
+
 
 export const IMG_CDN_URL ="https://image.tmdb.org/t/p/w500";

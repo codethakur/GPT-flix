@@ -31,7 +31,8 @@
 - TMDB IMG_CDN_URL
 - Imrove browse page ui design
 - usePopularMovies Custome hook
-
+- useupcomingMovies Custome hook
+- useTopRatedMovies Custome hook
 # Feature
 -Login/Sign UP
 |->Singn In/ Sign ip Form
