@@ -4,14 +4,21 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { GPT_LOGO, LOGO, USER_AVATAR } from "../utils/constants";
-import {toggleGptSearchView} from "../utils/gptSlice";
-
+import {
+  GO_BACK,
+  GPT_LOGO,
+  LOGO,
+  SUPPORTED_LANGUAGE,
+  USER_AVATAR,
+} from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleSignOut = () => {
@@ -46,27 +53,40 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
- const  handelGptSearchClick = ()=>{
-  dispatch(toggleGptSearchView());
- }
+  const handelGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
 
-
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10   flex justify-between">
-      <img 
-         
-        className="w-44" src={LOGO} alt="logo" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+      <img className="w-44 flex-shrink-0" src={LOGO} alt="logo" />
+
       {user && (
-        <div className="  flex justify-between  p-2 mr-3">
+        <div className="  flex  p-2 ">
+          {showGptSearch && (
+            <select
+              className=" h-12 w-28 mr-3 bg-gray-500 bg-opacity-50 cursor-pointer hover:bg-opacity-70 "
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGE.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
           <img
-          onClick={handelGptSearchClick}
-            className="w-12 h-12 mr-3 rounded-full "
-            src={GPT_LOGO}
+            onClick={handelGptSearchClick}
+            className="w-12 h-12 mr-3 bg-gray-500 bg-opacity-50 "
+            src={showGptSearch ? GO_BACK: GPT_LOGO}
             alt="GPT_LOGO"
           ></img>
           <div

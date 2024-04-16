@@ -34,7 +34,9 @@
 - useupcomingMovies Custome hook
 - useTopRatedMovies Custome hook
 - GPT Search Feature 
-- GPT 
+- GPT Search Bar
+- GPT Search Page
+- (Extra Feature) Multi-Language  Feature in APP
 # Feature
 -Login/Sign UP
 |->Singn In/ Sign ip Form

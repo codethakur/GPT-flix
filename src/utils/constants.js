@@ -26,4 +26,15 @@ export const IMG_CDN_URL ="https://image.tmdb.org/t/p/w500";
 export const GPT_LOGO = 
 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOH-MZs-QTuhsriguhrUoL1ONNGKumv_nOJSvQDm-KXw&s";
 
-export const bg_IMG ="https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/fb548c0a-8582-43c5-9fba-cd98bf27452f/IN-en-20240326-popsignuptwoweeks-perspective_alpha_website_medium.jpg";
+export const GO_BACK =
+"https://static-00.iconduck.com/assets.00/return-left-icon-256x200-9gz57f3c.png";
+export const bg_IMG =
+//"https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/fb548c0a-8582-43c5-9fba-cd98bf27452f/IN-en-20240326-popsignuptwoweeks-perspective_alpha_website_medium.jpg";
+"https://assets.nflxext.com/ffe/siteui/vlv3/c1366fb4-3292-4428-9639-b73f25539794/3417bf9a-0323-4480-84ee-e1cb2ff0966b/IN-en-20240408-popsignuptwoweeks-perspective_alpha_website_medium.jpg";
+
+
+export const SUPPORTED_LANGUAGE = [
+  {identifier: "en", name: "English"},
+  {identifier: "hi", name: "Hindi"},
+  {identifier: "sp", name: "Spanish"},
+];
