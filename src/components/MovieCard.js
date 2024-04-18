@@ -1,12 +1,15 @@
-import React from 'react'
-import { IMG_CDN_URL } from '../utils/constants';
+import React from 'react';
+import { IMG_CDN_URL, poster_path_Not_found } from '../utils/constants';
 
-const MovieCard = ({poster_path} ) => {
-  return(
-    <div className='w-44 pr-4'>
-        <img alt='Movie Card' src={IMG_CDN_URL + poster_path}/>
+const MovieCard = ({ poster_path }) => {
+  if (!poster_path) {
+    return <img src={poster_path_Not_found} alt="Not Found" />;
+  }
+  return (
+    <div className="w-44 pr-4">
+      <img alt="Movie Card" src={IMG_CDN_URL + poster_path} />
     </div>
   );
-}
+};
 
-export default MovieCard
+export default MovieCard;

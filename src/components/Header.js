@@ -85,7 +85,7 @@ const Header = () => {
           )}
           <img
             onClick={handelGptSearchClick}
-            className="w-12 h-12 mr-3 bg-gray-500 bg-opacity-50 "
+            className="w-12 h-12 mr-3 bg-gray-500 bg-opacity-50 rounded-full"
             src={showGptSearch ? GO_BACK: GPT_LOGO}
             alt="GPT_LOGO"
           ></img>

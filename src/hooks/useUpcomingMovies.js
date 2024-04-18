@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {addUpcomingMovies } from "../utils/moviesSlice";
 
 const useUpcomingMovies = () => {
   const dispatch = useDispatch();
+  const Upcoming_movie = useSelector(store=>store.movies.upcomingMovies);
+
 
   useEffect(() => {
     const fetchuseUpcomingMovies = async () => {
@@ -20,7 +22,9 @@ const useUpcomingMovies = () => {
       }
     };
 
-    fetchuseUpcomingMovies();
+    if(!Upcoming_movie){
+      fetchuseUpcomingMovies();
+    }
   }, [dispatch]); // Make sure to include dispatch in the dependency array
 
   // Optionally, you can return any cleanup function or additional data here

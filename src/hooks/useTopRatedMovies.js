@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTopRatedMovies } from "../utils/moviesSlice";
 
 const useTopRatedMovies = () => {
   const dispatch = useDispatch();
+  const TopRated_movie = useSelector(store=>store.movies.topratedMovies);
+
 
   useEffect(() => {
     const fetchuseRatedMovies = async () => {
@@ -19,8 +21,9 @@ const useTopRatedMovies = () => {
         console.error("Error fetching popular movies:", error);
       }
     };
-
-    fetchuseRatedMovies();
+    if(!TopRated_movie){
+      fetchuseRatedMovies();
+    }
   }, [dispatch]); // Make sure to include dispatch in the dependency array
 
   // Optionally, you can return any cleanup function or additional data here

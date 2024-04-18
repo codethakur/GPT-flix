@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPopularMovies } from "../utils/moviesSlice";
 
 const usePopularMovies = () => {
   const dispatch = useDispatch();
+  const popular_Movies = useSelector(store=>store.movies.popularMovies);
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
@@ -20,7 +21,7 @@ const usePopularMovies = () => {
       }
     };
 
-    fetchPopularMovies();
+    if(!popular_Movies)fetchPopularMovies();
   }, [dispatch]); // Make sure to include dispatch in the dependency array
 
   // Optionally, you can return any cleanup function or additional data here

@@ -7,21 +7,21 @@ const moviesSlice = createSlice({
     popularMovies: null,
     topratedMovies: null,
     upcomingMovies: null,
-    trailerVideo: null, 
+    trailerVideo: null,
   },
   reducers: {
     addNowPlayingMovies: (state, action) => {
       state.nowPlayingMovies = action.payload;
     },
     addPopularMovies: (state, action) => {
-      state.popularMovies = action.payload; 
+      state.popularMovies = action.payload;
     },
     addTopRatedMovies: (state, action) => {
-        state.topratedMovies = action.payload; 
-      },
+      state.topratedMovies = action.payload;
+    },
     addUpcomingMovies: (state, action) => {
-        state.upcomingMovies = action.payload; 
-    },  
+      state.upcomingMovies = action.payload;
+    },
     addTrailerVideo: (state, action) => {
       state.trailerVideo = action.payload;
     },
