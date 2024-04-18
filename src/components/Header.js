@@ -66,11 +66,11 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44 flex-shrink-0" src={LOGO} alt="logo" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex  flex-col md:flex-row justify-between">
+      <img className="hidden md:inline-block w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
 
       {user && (
-        <div className="  flex  p-2 ">
+        <div className="  flex  p-2 "> 
           {showGptSearch && (
             <select
               className=" h-12 w-28 mr-3 bg-gray-500 bg-opacity-50 cursor-pointer hover:bg-opacity-70 "
@@ -83,9 +83,9 @@ const Header = () => {
               ))}
             </select>
           )}
-          <img
+          <img 
             onClick={handelGptSearchClick}
-            className="w-12 h-12 mr-3 bg-gray-500 bg-opacity-50 rounded-full"
+            className=" -mr-8  w-8 h-8 mx-auto  md:w-12 md:h-12 md:mr-3 bg-gray-500 bg-opacity-50 rounded-full"
             src={showGptSearch ? GO_BACK: GPT_LOGO}
             alt="GPT_LOGO"
           ></img>
@@ -95,7 +95,7 @@ const Header = () => {
             onMouseLeave={toggleDropdown}
           >
             <img
-              className="w-12 h-12 mr-3 cursor-pointer"
+              className=" hidden md:inline-block w-12 h-12 mr-3 cursor-pointer"
               src={user && user.photoURL ? user.photoURL : USER_AVATAR}
               alt="usericon"
             />
